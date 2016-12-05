@@ -1,0 +1,23 @@
+lb-dev --name DaVinciDev DaVinci/v41r2
+cd ./DaVinciDev
+git lb-use DaVinci
+git lb-use Stripping
+git lb-checkout Stripping/master Phys/StrippingSelection
+git lb-checkout Stripping/master Phys/StrippingSelections
+ls
+cd Phys/
+ll
+cd ..
+git lb-use Analysis
+git lb-checkout Analysis/master Phys/DecayTreeTuple
+ll
+cd Phys/
+ll
+cd ..
+make -j 8
+make
+
+cd DaVinciDevSys/
+./run gaudirun.py ../starterkit-2016/opts.py
+Nb: Possibly change the data path in opts.py
+

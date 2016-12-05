@@ -1,0 +1,121 @@
+**************************
+GIT, GITHUB, GIT on LXPLUS
+**************************
+
+GitHib
+======
+
+Fork: a copy of the original repository
+
+
+
+Connect a GitHub repository with your local repository
+======================================================
+Carreful: your email on git config --global user.email "votre_email@votre_email.com" (or in ./gitconfig) must be the same than on GitHub
+
+1) Create a respository on GitHub
+2) Go in my local repository:
+git remote add origin https://github.com/nomutilisateur/MonProjet.git 
+git remote -v #display a list of all remote repository 
+
+
+
+Basic command List
+==================
+
+
+mkdir Foo
+git init #To be executed inside the dir Foo 
+(or git clone URL.git)
+
+If you want to create a "serveur"
+git init  --bare #Thanks to the option bare, only the .git is copied
+git clone ssh://utilisateur@monserveur.domaine.com/chemin/vers/le/depot/git # to log in serveur
+
+Before commit:
+--------------
+git status #show list of modified file, when file in red, there will not be commited.
+git add file #to update what will be committed, mandatory when file is created.
+git reset file HEAD #cancel git add
+git diff file #show YOUR modif. line by line, if no file parsed, default: all file 
+
+git commit file
+git commit -a: #commit all file even one in red
+#The commit ask you to summarize briefly your modifications
+git commit -m #commit message can be immediately written here ??????
+git commit -amend #correct YOUR last commit message
+
+git log #display all commit (author, commmit message, ...)
+git log -p #display line by line
+git log --stat #display the number of + and -
+git reset HEAD^ #cancel last commit but doesn't cancel file modifications
+git reset --hard HEAD^ ##restore Dir state at the avant dernier commit level 
+git checkout file #restore the file at its last commit state
+git checkout -- <file>…  #to discard changes in working directory)
+
+git pull 
+git push #send your commit, advised to to git pull just before, equivalent to git fetch; git merge (fetch download all commits from the serveur) 
+
+git revert Commit_Id #create a reverted commit which cancel your erroned commit
+
+git branch #Display list of branch
+git branch branch_name #Create a new branch
+git checkout branch_name #To work on the branch dir.
+git checkout master #go to the original branch
+git merge branch_name #merge branch_name to the master branch, if not the commit done on tha branch will not be published, merge doesn't delete the branch you have to do:
+git branch -d branch_name #delete the branch except if some commit not merged
+git branch -d branch_name #force to delete the branch
+
+git log --graph #??????????
+
+
+
+Commit identification
+---------------------
+HEAD #dernier commit ;
+HEAD^  #avant-dernier commit ;
+HEAD^^ #avant-avant-dernier commit ;
+HEAD~2 #avant-avant-dernier commit (notation équivalente) ;
+d6d98923868578a7f38dea79833b56d0326fcba1 : #commit Id
+d6d9892 : #most of the time, only the beginning of the commit Id is enough to identify iy.
+
+
+
+Install git on lxplus:
+======================
+
+See INSTALL file for more detail
+
+wget https://www.kernel.org/pub/software/scm/git/git-2.10.2.tar.gz
+tar xzf git-2.10.2.tar.gz
+go to git fodler
+make configure
+./configure --prefix=/afs/cern.ch/user/c/cmeaux/program/
+(create program directory if need)
+make code all -j8 (to run on 8 cores)
+make install install-doc install-html
+
+Then go to your folder:
+/afs/cern.ch/user/c/cmeaux/program/
+go to bin/
+and check the version:./git --version
+
+
+Contribute to the starterkit lesson
+===================================
+
+Click on Fork #create a copy of the original repository
+git clone https://YOURUSERNAME@github.com/YOURUSERNAME/first-analysis-steps.git
+
+
+
+1) go to github first analysis
+2) find an issue or create one for the thing you want
+3) assign yourself to an issue ??
+4) fork the repository to your username
+5) clone the repository to your machine
+6) git status, make changes, git stautus, git add, git commit
+	6-1) git commit -m "Fix a bug" -m "This closes #39"
+7) git push
+8) open a pull request
+9) Profit!

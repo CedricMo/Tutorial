@@ -1,0 +1,234 @@
+*************
+Bash Commands
+*************
+
+python -c 'print("hello")' ; echo GoodBye : semi column between different command
+
+mkdir My Folder
+mkdir My\ Folder
+
+echo This a semicolon \; woo!
+
+whoami
+
+Some variables $
+================
+
+echo $PATH
+/Users/cedric/anaconda/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin
+
+$? Variabel set to 0 if previous command success, 1 if fail
+
+echo "There is direcotry in $PATH"
+There is direcotry in /Users/cedric/anaconda/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin
+
+echo 'There is direcotry in $PATH'
+There is direcotry in $PATH
+
+$AFSWORK
+
+
+seq 10 -3 1
+10
+7
+4
+1
+
+seq 1 2 10
+1
+3
+5
+7
+9
+
+
+To display a file
+=================
+
+more filename
+cat filename: can concatenate file, not the case on less
+head filemane: Display the first lines of the file
+tail -5 filename Display the last 5 lines
+
+less
+----
++------------+---------------------------------+
+| Commmand   | Action                          |
++============+=================================+
+| j or Enter | Next line                       |
+| k          | Previous line                   |
++------------+---------------------------------+
+| b          | Previous page                   |
+| Space      | Next page                       |
++------------+---------------------------------+
+| g          | go the first line of the file   |
+| G          | go to the last line of the file |
++------------+---------------------------------+
+| <n>G       | got ot line <n>                 |
++------------+---------------------------------+
+| /<text>    | Forward search for <text>       |
+| ?<text>    | Backward seardh for <text>      |
+| n          | Next search match               |
+| N          | Previous search match           |
++------------+---------------------------------+
+| q          | to quit                         |
++------------+---------------------------------+
+
+
+Research
+========
+
+find filename
+locate (file)
+which command
+
+find .  -name 'js'
+find .  -name '*js*' -type d -exec ls {} \; or ';'
+
+
+find all python file sin your $HOME, that contain print statements:
+find . -type f -name '*py*' -exec grep print {} \;
+
+ tar file1 file2
+ tar xzf archive tar.gz
+
+ cd -
+
+ wc: word count
+ wc -l file
+
+
+
+
+ls > ls_output.txt
+ls >> ls_output.txt
+ls | ls_output.txt
+ls | tee ls_output.txt
+
+cat file | grep word1 | grep word2
+
+
+Redirection
+===========
+
+Differents streams
+stdout and stderr
+1 and 2 
+
+STDIN  (0)
+STDOUT (1)
+STDERR (2)
+
+ls nfjdshfidsjkfh 1>fdksfjh.txt
+ls nfjdshfidsjkfh 2>fdksfjh.txt
+
+ls nfjdshfidsjkfh 1>&2 > fdksfjh.txt
+
+stdin
+
+Redirect ls into stdout.log stderr.log
+ls somethingA somethingB 1> stdout.log 2> stderr.log
+Nb: The 1 is optional
+
+AFSWORF=/afs/cern.ch/... in .profile
+cd $AFSWORK
+
+type for alias and not which
+
+
+Make an alais that lists the current directory in the less command:
+alias thor="ls | less"
+
+shebang #! then path where is the program to read the following
+
+In hulk.sh
+#!/bin/bash
+EXCELLENT=1
+
+set-e : ??
+set-x : print the command runned
+set-u : return unbound variable if fake variable
+
+export EXCELLENT (to export it on bash, not stay inside hulk)
+if $? !=0
+	exit
+
+command test
+
+run multiple command 
+&& run 2nd only if 1st commnd works $? ==0
+; run 2nd command whatever success of the 1st one
+
+
+square bracket equivalent to test command
+
+for i in $(ls ~/*); do
+ ...
+
+
+REGEX
+=====
+
+anchors ^ and $ to force a regex to match only at the start or end of a line, respectively. eg: 
+grep '^foo$' filename #Match line only containing foo
+grep '^$' filename  #Search blank line
+
+[aB1] stands for soit a soit b soit 1
+0-10 a-z series
+
+ls: *-[a-h]*.md: No such file or directory
+
+ls {01, 05, 10}*.md 
+equivalent a:
+ls 01*.md 05*.md 10*.md
+
+cp test.{txt, md} .
+
+
+DOUBLE PIPE et &&
+=================
+
+command1 || command2
+if command1 fails, do command2
+if command1 success, never do command2
+
+&&, do command2 only if command1 success
+
+
+
+
+
+
+
+GREP/EGREP
+==========
+
+grep 'string with space or a word' file1 file2 file3
+cat otherfile | grep 'something'
+command | grep 'some string'
+--color : display output in color
+-r: recursive: read each file under each directory
+-n: the line number preceed the line where the word has been found
+-w: search word, not sequence of character
+-i: ignore word case
+-h: suppress the inclusion of the filename in the search
+-c: count number of line where word has been found
+-v: invert the match
+ex: grep -v bar /path/to/file
+print all line that do not contain the word bar
+-l: only list filename containing the word
+
+Search 2 words:
+egrep -w 'word1|word2' /path/to/file
+
+
+Diverse program
+===============
+
+**TEE**
+Redirect output to multiple files, copies standard input to standard output and also to any files given as arguments
+
+**sed, cut** 
+permettent de modifier ou de supprimer une partie d’une chaîne de caractères, par exemple pour remplacer un caractère par un autre dans un fichier, ou encore supprimer des chaînes de caractères inutiles.
+
+

@@ -1,0 +1,32 @@
+
+*************
+Ask questions
+*************
+
+
+in public/for/joan
+for/thispb (to redirect people to my p of file if code too big to put inside the post)
+
+Subject: DecayTreeTuple crash on DaVinci v41r3
+
+Dear all,
+
+I run DaVinci v41r3 and I get an error:
+
+	fdhfghkgjhdksl
+
+I run on lxplus. I've trieed ....
+
+The options files I used and the full logfile are in: 
+
+	afs/cern.ch/user/c/cmeaux/public/for/my_pb
+
+I think the problematic line might be....
+I run DaVinci with
+	
+	lb-run DaVinci/v41r3 gaudrun.py options.py
+
+Thanks,
+Cédric
+
+

@@ -1,0 +1,141 @@
+#Differences between Python 2 and 3
+	- print function in python3 is a function, in python2 is a statement
+		* If you want to use the new features:
+				from __future__ import print_
+
+
+#Ipython functionalities
+	-Tab Completion
+	- ?     : different way of asking help (ex: print?)
+	- !     : Stops the interpreter and starts a command line
+	- %save : saves the lines of the interpreter in a file
+	
+#Python Functions
+	- dir() : takes one object and returns all the methods to apply to it
+	- help(): takes one object and gives help
+	- default objects: declare them via the type followed by()
+		* int()
+		* float()
+		* str()
+		* list()
+		* dict()
+	- in lists, tuples and dictionaries the last element can always be followed by a comma
+	- If you want to use the python script as a binary file 
+		* put this line at the top of the python program
+				#! /usr/bin/env python
+		* Give the file executable rights through chmod
+				chmod +x 
+	
+
+#Strings
+	-"abc", or 'abc': The 
+	-.format() function: puts information into a string 
+		
+				INPUT:  "this number {} is different from {}".format(42, 45)
+				OUTPUT: 'this number 42 is different from 45'
+
+	- % formatting: puts information into a string
+				INPUT: "abc %d" % 42
+				OUTPUT:
+
+	- "abc"*n : multiplies a number n of times
+				INPUT: 	"abc"*3
+				OUTPUT: 'abcabcabc'
+
+
+#Lists	
+	- Sequences of data: [1,2,3, "abc"]
+	- len(list) : Returns the length of the list 
+	- list[2]  : acces third element of the list named list
+	- list[-2] : access third element starting from the right
+	- list comprehension:
+				INPUT: [x for x in "abc"]
+				OUTPUT:['a', 'b', 'c'
+
+				INPUT: [2 * x for x in "abc"]
+				OUTPUT:['aa', 'bb', 'cc']
+
+				INPUT: [x for x in [1,2,3,4] if x > 2]
+				OUPTUT:[3, 4]
+
+				INPUT: [2**int(x) for x in ["1","2","3"]]
+				OUTPUT:[2, 4, 8ssh]
+
+	- list[2:3] : silces the list between the two indices
+				INPUT: "abcdef"[0:3]
+				OUTPUT:'abc'
+
+	-zip(list1, list2): is a list of tuples of pairs of elements
+#Tuples
+	- They are immutable objects:
+				INPUT:  x = (1,2,3)
+					    x[0] = 0
+				OUTPUT: TypeError: 'tuple' object does not support item assignment
+#If assignemnts
+	- b = 42 if a == 42 else -1
+
+
+	- + : appends one list to another
+				INPUT: "abc"+"def"
+				OUTPUT: 'abcdef'
+
+#For Loops
+	- range(10) :  produces a list of numbers to use in a for loop, up to nine
+				INPUT: for i in range(10):	
+					        print i
+
+	-break : stops the loop and continues the program
+	-continue : stops the loop and then starts a new iteration of the loop
+
+#Dictionaries
+	- d={'abc':42} : the value 42 is assigned to the key 'abc'
+
+#Functions
+	- def myfunction (a, extra):
+		# ...
+		return
+	- Functions in python support default arguments
+		* def myfunction(a, extra=100)
+		  	# ...
+			return
+	- You can always use the names of the arguments if you know them and forget order
+
+#Modules
+	- You can save all related functions in one single file and then import this file in other applications
+	- Once you import a module everything runs at once, unless you put this line 
+		if __name__ == '__main__':
+	- You can provide your functions with a docstring that explains what the function does
+		def myfunction(x, extra=100):
+			"Description of the function"
+			# ...
+			rerturn
+
+		def myfunction(x, extra=100):
+			"""Use the triple quotation mark for multiple 
+			   lines docstrings"""
+			# ...
+			rerturn
+	  *the docstring get printed with the ? in ipython
+
+	- If you want to import only one function you can use this sintax
+		from module import myfunction
+	
+	- import module as mod : changes the name of the module that you'll use throughout your program
+
+	- Remember there is a module for pretty much everything
+
+	- form module import * : import everything from the module
+
+#classes
+	- class Momentum:
+		""" Put here the docstring"
+
+		#constructor. No need to pass the self value
+	  	def __init__(self, t, x, y ,z):
+			self.t = t
+			self.x = x
+			self.y = y
+			self.z = z
+		#def invariant_mass(self):
+			return -(self.x*self.x+self.y*self.y+self.z*self.z-self.t*self.t)0
+

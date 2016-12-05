@@ -1,0 +1,5 @@
+****************************
+Sublime Shortcuts and Tricks
+****************************
+
+Cmd+d: Select a word
