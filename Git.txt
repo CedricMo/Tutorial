@@ -2,21 +2,48 @@
 GIT, GITHUB, GIT on LXPLUS
 **************************
 
-GitHib
+GitHub
 ======
 
-Fork: a copy of the original repository
+Clone: clone a repository on your local workstation, canno't contribute back to the upstream repo unless you are explicitelly declared as contributor
+
+To contribute you need to do a FORK: it clone a repository on your sever side
+Then clone this repo on your local workstation, commit, push
+and then open a pull request to send your change to the upstream repo
+
+remote configuration
+--------------------
+origin: referts to your own repo on GitHub (set by default when you do a clone)
+upstream: refers to the original repo that you have forked
+git remote add upstream git://github.com/user/repo.git #Open a upstream communication canal between the upstream repo and your lacal repo
 
 
+To sync a fork
+--------------
 
-Connect a GitHub repository with your local repository
-======================================================
+git fetch upstream #Fetch the branches and their respective commits from the upstream repository. Commits to master will be stored in a local branch, upstream/master.
+git checkout master
+git merge upstream/master
+
+Connect a github repository to a local repository
+=================================================
+
+git clone https://github.com/nomutilisateur/MonProjet.git 
+
+
+Connect a local repository to an empty GitHub repository
+========================================================
+	
 Carreful: your email on git config --global user.email "votre_email@votre_email.com" (or in ./gitconfig) must be the same than on GitHub
 
 1) Create a respository on GitHub
 2) Go in my local repository:
 git remote add origin https://github.com/nomutilisateur/MonProjet.git 
-git remote -v #display a list of all remote repository 
+git remote -v #display a list of all remote repository connected to our local repository
+git push origin master
+git push --set-upstream origin master #if command above doesn’t work
+
+
 
 
 
@@ -40,7 +67,7 @@ git reset file HEAD #cancel git add
 git diff file #show YOUR modif. line by line, if no file parsed, default: all file 
 
 git commit file
-git commit -a: #commit all file even one in red
+git commit -A: #commit all file even one in red
 #The commit ask you to summarize briefly your modifications
 git commit -m #commit message can be immediately written here ??????
 git commit -amend #correct YOUR last commit message

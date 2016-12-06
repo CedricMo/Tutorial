@@ -2,6 +2,15 @@
 Bash Commands
 *************
 
+Symlink
+-------
+create a symlink called sublime which links the subl CLI to a folder where your system usually looks to execute these binaries. To do this, type in:
+For Sublime 3:
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
+
+
+
+
 python -c 'print("hello")' ; echo GoodBye : semi column between different command
 
 mkdir My Folder
@@ -11,8 +20,12 @@ echo This a semicolon \; woo!
 
 whoami
 
-Some variables $
-================
+
+./script :  runs the script as an executable file, launching a new shell to run it
+source script : reads and executes commands from filename in the current shell environment
+
+Some variables d'environement $
+==============================
 
 echo $PATH
 /Users/cedric/anaconda/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin
@@ -26,6 +39,7 @@ echo 'There is direcotry in $PATH'
 There is direcotry in $PATH
 
 $AFSWORK
+$OLDPWD
 
 
 seq 10 -3 1
@@ -232,3 +246,14 @@ Redirect output to multiple files, copies standard input to standard output and 
 permettent de modifier ou de supprimer une partie d’une chaîne de caractères, par exemple pour remplacer un caractère par un autre dans un fichier, ou encore supprimer des chaînes de caractères inutiles.
 
 
+
+
+History Command Line
+history (n)  list last n commands
+!n   execut command enumerated n
+!! execute the last command
+!-n execute the command n times before
+!string execute the last command starting with string
+!?string? execute the last command containg the word string
+CommandName !* Execute the command commandName with any arguments you used on your last command
+Ctrl+R: type your search then Ctrl+R to scroll back your history then Enter to exectute, left/right arrow to edit the command

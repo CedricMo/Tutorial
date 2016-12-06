@@ -1,4 +1,4 @@
-#Differences between Python 2 and 3
+v#Differences between Python 2 and 3
 	- print function in python3 is a function, in python2 is a statement
 		* If you want to use the new features:
 				from __future__ import print_
@@ -139,3 +139,13 @@
 		#def invariant_mass(self):
 			return -(self.x*self.x+self.y*self.y+self.z*self.z-self.t*self.t)0
 
+
+
+Multiprocessing
+from multiprocessing import Pool
+  pool = Pool()
+  pool.map(somefunction,((arguments,for,the,function) for x in somelist))
+or
+  pool.apply_async(somefunction,(arguments,for,the,function))
+  pool.close()
+  pool.join()
